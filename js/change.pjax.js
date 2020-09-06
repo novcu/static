@@ -71,29 +71,29 @@ console.log("\n%c Change By 山卜方 %c https://novcu.com ","color:#fff;backgro
 
 })(jQuery);
 
-$(document).ready((function(_this) {
-  return function() {
-    var bt;
-    bt = $('#back_to_top');
-    if ($(document).width() > 480) {
-      $(window).scroll(function() {
-        var st;
-        st = $(window).scrollTop();
-        if (st > 30) {
-          return bt.css('display', 'block');
-        } else {
-          return bt.css('display', 'none');
-        }
-      });
-      return bt.click(function() {
-        $('body,html').animate({
-          scrollTop: 0
-        }, 800);
-        return false;
-      });
+
+$('#gotop').on('click', GoTop);
+function scaleIn(object, time) {
+    object.css('transition', time).css('transform', 'scale(0)');
+    object.show();
+    object.css('transform', 'scale(1)');
+}
+
+function scaleOut(object, time) {
+    object.css('transition', time).css('transform', 'scale(0)')
+}
+function GoTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+$('#gotop').hide();
+$(window).scroll(function() {
+    if ($(window).scrollTop() > 450) {
+        scaleIn($('#gotop'), '0.7');
+    } else {
+        scaleOut($('#gotop'), '0.7');
     }
-  };
-})(this));
+});
 
 
 
