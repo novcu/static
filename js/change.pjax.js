@@ -152,6 +152,22 @@ jQuery(document).ready(function($){
   }, 100);
   }
   });
+//搜索框
+function search_show(){
+	if($("#search_k").css("display")=='none'){
+		 $("#search_k").slideDown();
+	}else{
+		 $("#search_k").slideUp();
+	 }
+};
+function keyup_submit(e){ 
+  var evt = window.event || e; 
+   if (evt.keyCode == 13){
+    document.getElementsByClassName("search_backg").item(0).style.display="flex"
 
-
+   }
+ };
+ function rewardToggle(){
+  document.getElementsByClassName("search_backg").item(0).style.display="none"
+}
 
